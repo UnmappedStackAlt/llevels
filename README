@@ -2,22 +2,22 @@ llevels (Lock Levels) is a simple utility in C for generating a C enum programma
 
 ```
 # comment
-Kernel
-  Core/Ke/whatever (all spinlocks)
-    Clock & timer stuff
-      Abstract scheduler API
-        Scheduler
-    IPI system
-      TLB shootdown
-    Bringup stuff
-  Everything else (mostly mutexes)
-      Page frame allocation
-        Slab
-          Region tracking
-          vmem
-            Page fault handling
-          Process manager
-          Object manager
+LevelPassive
+    LevelCore
+        LevelTimers
+            LevelSchedulerAPI
+                LevelScheduler
+        LevelIPIs
+            LevelTLBShootdown
+        LevelBringup
+    LevelExecutive
+        LevelPageFrameAllocation
+            LevelSlab
+                LevelRegionTracking
+                LevelVMem
+                    LevelPageFaultHandling
+            LevelProcessManager
+            LevelObjectManager
 ```
 
 Indentation must be spaces where each indent is 4 spaces (yes, kind of bad to require this, but for my purposes of this tool its okay). Running llevels with a `lock.levels` file containing this tree will output to stdout (redirectable of course to wherever is needed) a C enum like so:
