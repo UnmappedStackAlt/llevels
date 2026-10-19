@@ -1,0 +1,18 @@
+# this is the lock level thing
+
+LevelPassive
+    LevelCore
+        LevelTimers
+            LevelSchedulerAPI
+                LevelScheduler
+        LevelIPIs
+            LevelTLBShootdown
+        LevelBringup
+    LevelExecutive
+        LevelPageFrameAllocation
+            LevelSlab
+                LevelRegionTracking
+                LevelVMem
+                    LevelPageFaultHandling
+            LevelProcessManager
+            LevelObjectManager
